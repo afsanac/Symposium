@@ -10,7 +10,8 @@ public class Game extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		// TODO Auto-generated method stub
+		GameScreen gamscreen = new GameScreen(getWidth(), getHeight());
+		setScreen(gamscreen);
 		
 	}
 
