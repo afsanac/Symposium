@@ -7,11 +7,15 @@ public class Game extends GUIApplication {
 		super(width, height);
 		
 	}
-
+public static void main(String[] args){
+	 Game g = new Game(800, 500);
+	 Thread game = new Thread(g);
+	 game.start();
+}
 	@Override
 	public void initScreen() {
-		GameScreen gamscreen = new GameScreen(getWidth(), getHeight());
-		setScreen(gamscreen);
+		GameScreen gs = new GameScreen(getWidth(), getHeight());
+		setScreen(gs);
 		
 	}
 
