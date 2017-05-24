@@ -1,39 +1,27 @@
-package gui6.components;
+package gui.components;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 public abstract class Component implements Visible {
 
-	//FIELDS
 	private int x;
 	private int y;
 	private int w;
 	private int h;
 	private BufferedImage image;
-	
+
 	public Component(int x, int y, int w, int h) {
 		this.x = x;
 		this.y = y;
-		this. w = w;
+		this.w = w;
 		this.h = h;
-		this.image = new BufferedImage(w,h,
-				BufferedImage.TYPE_INT_ARGB);
+		this.image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 		update(image.createGraphics());
 	}
 
 	public BufferedImage getImage() {
 		return image;
-	}
-
-	
-	
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public void setY(int y) {
-		this.y = y;
 	}
 
 	public int getX() {
@@ -61,18 +49,17 @@ public abstract class Component implements Visible {
 	}
 
 	public abstract void update(Graphics2D g);
-	
-	//deletes image to start over
-	public Graphics2D clear(){
-		image = new BufferedImage(w,h,
-				BufferedImage.TYPE_INT_ARGB);
+
+	public Graphics2D clear() {
+		image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 		return image.createGraphics();
 	}
 	
+	public void setX(int x){
+		this.x = x;
+	}
 	
-	
-	
-	
-	
-	
+	public void setY(int y){
+		this.y = y;
+	}
 }
