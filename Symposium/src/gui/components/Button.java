@@ -6,7 +6,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-public class Button extends TextLabel {
+public class Button extends TextLabel implements Clickable {
 
 	private Color color;
 	private Action action;
@@ -37,7 +37,7 @@ public class Button extends TextLabel {
 		g.setFont(new Font(getFont(), Font.PLAIN, getSize()));
 		FontMetrics fm = g.getFontMetrics();
 		if (getText() != null) {
-			g.setColor(Color.white);
+			g.setColor(Color.black);
 			String t = getText();
 			// just in case text is too wide, cut off
 			int cutoff = t.length();

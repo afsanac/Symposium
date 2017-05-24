@@ -81,7 +81,7 @@ public abstract class ClickableScreen extends Screen implements MouseListener {
 		if (viewObjects.contains(v)) {
 			viewObjects.remove(v);
 			viewObjects.add(v);
-			
+
 		}
 	}
 

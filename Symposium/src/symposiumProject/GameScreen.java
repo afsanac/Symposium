@@ -1,6 +1,7 @@
 package symposiumProject;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
 
 import gui.components.Action;
@@ -58,6 +59,12 @@ public class GameScreen extends ClickableScreen implements Runnable {
 		viewObjects.add(gameStarter);
 		viewObjects.add(exitIntro);
 
+	}
+
+	@Override
+	public void initAllObjects(ArrayList<Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
