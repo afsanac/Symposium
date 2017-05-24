@@ -1,9 +1,9 @@
 package symposiumProject;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
-
 import gui.components.Action;
 import gui.components.Button;
 import gui.components.TextLabel;
@@ -29,9 +29,22 @@ public class GameScreen extends ClickableScreen implements Runnable {
 
 	}
 
-	public void initAllObjects(List<Visible> viewObjects) {
-		String[] setTo = {"You're in Enchanted Forest", "You found the old witch well!", ""};
+	public static void setLabelFont(TextLabel label, String fontname, float size){
+		try {
+			File fontFile = new File("resources/"+fontname+".ttf");
+			//			File fontFile = new File("resources//DayRoman.ttf");
+			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+			Font baseFont=font.deriveFont(size);
+			label.setFont(baseFont);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void initAllObjects(ArrayList<Visible> viewObjects) {
+		String[] setTo = {"You're in Enchanted Forest", "You found the old witch well!", "Oh no! You found the great dragon!"};
 		title = new TextLabel(300, 100, 200, 50, "Fairly Oddventure");
+		setLabelFont(title, "Marchand de Venise", 55f);
 		author = new TextLabel(300, 150, 250, 50, "By Afsana Chadni");
 		intro = new TextLabel(50, 10, 600, 100, "Welcome To FaeryLand! My name is Pixie and I'll be your guide");
 
@@ -56,14 +69,8 @@ public class GameScreen extends ClickableScreen implements Runnable {
 		viewObjects.add(title);
 		viewObjects.add(author);
 		viewObjects.add(gameStarter);
-		viewObjects.add(exitIntro);
+//		viewObjects.add(exitIntro);
 
-	}
-
-	@Override
-	public void initAllObjects(ArrayList<Visible> viewObjects) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

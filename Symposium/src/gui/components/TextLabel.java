@@ -8,13 +8,14 @@ import java.awt.RenderingHints;
 public class TextLabel extends Component {
 
 	private String text;
-	private String font;
+	private Font font;
 	private int size;
 
 	public TextLabel(int x, int y, int w, int h, String text) {
 		super(x, y, w, h);
 		this.text = text;
-		this.font = "Helvetica";
+		this.font = new Font("Helvetica", Font.PLAIN,20);
+		
 		this.size = 20;
 		update();
 	}
@@ -28,11 +29,11 @@ public class TextLabel extends Component {
 		update();
 	}
 
-	public String getFont() {
+	public Font getFont() {
 		return font;
 	}
 
-	public void setFont(String font) {
+	public void setFont(Font font) {
 		this.font = font;
 		update();
 	}
@@ -54,10 +55,12 @@ public class TextLabel extends Component {
 
 	protected void drawText(Graphics2D g) {
 		g.setColor(Color.red);
-		g.setFont(new Font(font, Font.PLAIN, size));
+		g.setFont(font);
 		if (text != null) {
 			g.drawString(text, 4, getHeight() - 5);
 		}
 	}
+
+
 
 }
