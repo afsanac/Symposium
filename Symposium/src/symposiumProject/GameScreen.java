@@ -29,7 +29,6 @@ public class GameScreen extends ClickableScreen implements Runnable {
 
 	}
 
-	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		String[] setTo = {"You're in Enchanted Forest", "You found the old witch well!", ""};
 		title = new TextLabel(300, 100, 200, 50, "Fairly Oddventure");
