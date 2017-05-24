@@ -1,9 +1,9 @@
-package gui.components;
+package gui6.components;
 
 import java.awt.image.BufferedImage;
 
 public interface Visible {
-	
+
 	public BufferedImage getImage();
 	public int getX();
 	public int getY();

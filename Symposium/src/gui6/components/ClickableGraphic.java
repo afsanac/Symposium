@@ -1,8 +1,4 @@
-package gui.components;
-
-import gui.components.Action;
-import gui.components.Clickable;
-import gui.components.Graphic;
+package gui6.components;
 
 public class ClickableGraphic extends Graphic implements Clickable {
 
@@ -37,4 +33,12 @@ public class ClickableGraphic extends Graphic implements Clickable {
 		if(action != null)action.act();
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
 }

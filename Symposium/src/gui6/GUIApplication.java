@@ -1,4 +1,4 @@
-package gui;
+package gui6;
 
 import java.awt.Graphics;
 import java.awt.event.MouseListener;
@@ -6,17 +6,15 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
 
-import gui.Screen;
+public abstract class GUIApplication extends JFrame implements Runnable{
 
-public abstract class GUIApplication extends JFrame implements Runnable {
-	
 	//FIELDS
 	private Screen currentScreen;
 	
 
 	public GUIApplication(int width, int height) {
 		super();
-		//setUndecorated(true); // hide window bar
+//		setUndecorated(true);//hides the window bar
 		setBounds(20,20,width, height);
 		//terminates program when window is closed
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,7 +40,8 @@ public abstract class GUIApplication extends JFrame implements Runnable {
 		//start listening to new screen
 		if(currentScreen != null){
 			addMouseListener(currentScreen.getMouseListener());
-			addMouseMotionListener(currentScreen.getMouseMotionListener());
+			addMouseMotionListener(
+					currentScreen.getMouseMotionListener());
 		}
 	}
 	
@@ -61,5 +60,13 @@ public abstract class GUIApplication extends JFrame implements Runnable {
 			}
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

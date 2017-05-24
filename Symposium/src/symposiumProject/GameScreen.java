@@ -16,6 +16,7 @@ public class GameScreen extends ClickableScreen implements Runnable {
 	private TextLabel intro;
 	private Button gameStarter;
 	private Button exitIntro;
+	private String[] locations;
 
 	public GameScreen(int width, int height) {
 		super(width, height);
@@ -29,9 +30,10 @@ public class GameScreen extends ClickableScreen implements Runnable {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		String[] setTo = {"You're in Enchanted Forest", "You found the old witch well!", ""};
 		title = new TextLabel(300, 100, 200, 50, "Fairly Oddventure");
 		author = new TextLabel(300, 150, 250, 50, "By Afsana Chadni");
-		intro = new TextLabel(50, 100, 700, 300, "Welcome To FaeryLand " + "My name is Pixie and I'll be your guide");
+		intro = new TextLabel(50, 10, 600, 100, "Welcome To FaeryLand! My name is Pixie and I'll be your guide");
 
 		gameStarter = new Button(300, 200, 200, 50, "Start Game", Color.CYAN, new Action() {
 
@@ -45,6 +47,7 @@ public class GameScreen extends ClickableScreen implements Runnable {
 					public void act() {
 						remove(intro);
 						remove(exitIntro);
+						
 					}
 				});
 
@@ -52,7 +55,8 @@ public class GameScreen extends ClickableScreen implements Runnable {
 		});
 		viewObjects.add(title);
 		viewObjects.add(author);
-		viewObjects.add(intro);
+		viewObjects.add(gameStarter);
+		viewObjects.add(exitIntro);
 
 	}
 

@@ -1,15 +1,13 @@
-package gui.sampleGames;
+package gui6.sampleGames;
 
-import gui.GUIApplication;
-import gui.screens.CoordinateScreen;
-import gui.sampleGames.MouseFollower;
+import gui6.GUIApplication;
+import gui6.screens.CoordinateScreen;
 
 public class MouseFollower extends GUIApplication {
-	
+
 	//FIELDS
 	public static MouseFollower game;//only ONE exists
 	public static CoordinateScreen cs;
-	public static MyScreen myScreen;
 	
 	
 	public MouseFollower(int width, int height) {
@@ -17,9 +15,9 @@ public class MouseFollower extends GUIApplication {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
 	public void initScreen() {
 		cs = new CoordinateScreen(getWidth(), getHeight());
-		myScreen = new MyScreen(getWidth(), getHeight());
 		setScreen(cs);
 	}
 
@@ -28,4 +26,13 @@ public class MouseFollower extends GUIApplication {
 		Thread app = new Thread(game);
 		app.start();
 	}
+
 }
+
+
+
+
+
+
+
+

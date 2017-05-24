@@ -1,4 +1,4 @@
-package gui.components;
+package gui6.components;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 
 public class Graphic implements Visible {
-	
+
 	//FIELDS 
 	private BufferedImage image;
 	private boolean loadedImages;
@@ -153,6 +153,5 @@ public class Graphic implements Visible {
 	public void update() {
 		//does nothing. Image stays the same.
 	}
-
 
 }
