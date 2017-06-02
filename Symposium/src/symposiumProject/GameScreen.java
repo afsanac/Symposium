@@ -16,7 +16,8 @@ public class GameScreen extends ClickableScreen implements Runnable {
 	private TextLabel author;
 	private TextLabel intro;
 	private Button gameStarter;
-	private Button exitIntro;
+	private Button choice1Button;
+	private Button choice2Button;
 	private String[] locations;
 
 	public GameScreen(int width, int height) {
@@ -55,11 +56,11 @@ public class GameScreen extends ClickableScreen implements Runnable {
 				viewObjects.remove(author);
 				viewObjects.remove(gameStarter);
 				viewObjects.add(intro);
-				exitIntro = new Button(400, 400, 200, 50, "Exit", Color.DARK_GRAY, new Action() {
+				choice1Button = new Button(400, 400, 200, 50, "Exit", Color.DARK_GRAY, new Action() {
 
 					public void act() {
 						remove(intro);
-						remove(exitIntro);
+						
 						
 					}
 				});
