@@ -19,9 +19,17 @@ public class GameScreen extends ClickableScreen implements Runnable {
 	private Button choice1Button;
 	private Button choice2Button;
 	private String[] locations;
+	
+	
+	private Decision[] allDecisions={new ExploreChoice(),new DragonChoice()};
+	
+	public static TextLabel result;
+	public static GameScreen game;		
+	public static Character player;
 
 	public GameScreen(int width, int height) {
 		super(width, height);
+		game = this;
 	}
 
 	@Override
@@ -43,11 +51,16 @@ public class GameScreen extends ClickableScreen implements Runnable {
 	}
 	
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
+		player = new Player();
 		String[] setTo = {"You're in Enchanted Forest", "You found the old witch well!", "Oh no! You found the great dragon!"};
 		title = new TextLabel(300, 100, 200, 50, "Fairly Oddventure");
 		setLabelFont(title, "Marchand de Venise", 55f);
 		author = new TextLabel(300, 150, 250, 50, "By Afsana Chadni");
-		intro = new TextLabel(50, 10, 600, 100, "Welcome To FaeryLand! My name is Pixie and I'll be your guide");
+		result= new TextLabel(50, 10, 600, 100, "");
+		viewObjects.add(result);
+		intro = new TextLabel(50, 60, 600, 100, "Welcome To FaeryLand! My name is Pixie and I'll be your guide");
+		choice1Button = new Button(400, 400, 80, 50, "a", Color.DARK_GRAY, null);
+		choice2Button = new Button(500, 400, 80, 50, "b", Color.DARK_GRAY, null);
 
 		gameStarter = new Button(300, 200, 200, 50, "Start Game", Color.CYAN, new Action() {
 
@@ -55,15 +68,12 @@ public class GameScreen extends ClickableScreen implements Runnable {
 				viewObjects.remove(title);
 				viewObjects.remove(author);
 				viewObjects.remove(gameStarter);
-				viewObjects.add(intro);
-				choice1Button = new Button(400, 400, 200, 50, "Exit", Color.DARK_GRAY, new Action() {
-
-					public void act() {
-						remove(intro);
-						
-						
-					}
-				});
+				addObject(choice1Button);
+				addObject(choice2Button);
+				addObject(intro);
+				nextChoice();
+//				viewObjects.add(intro);
+//				
 
 			}
 		});
@@ -72,6 +82,40 @@ public class GameScreen extends ClickableScreen implements Runnable {
 		viewObjects.add(gameStarter);
 //		viewObjects.add(exitIntro);
 
+	}
+
+	//random
+	protected void nextChoice() {
+		int i = (int) (Math.random()*allDecisions.length);
+		nextChoice(i);
+	}
+
+	//anything but i
+	protected void nextExclusiveChoice(int i) {
+		int j = (int) (Math.random()*allDecisions.length);
+		while(j==i){
+			j = (int) (Math.random()*allDecisions.length);
+		}
+		nextChoice(j);
+	}
+
+	//select
+	public void nextChoice(int i) {
+		if(player.isAlive()){
+			Decision d= allDecisions[i];
+			intro.setText(d.getDescription());
+			
+			Choice c1= d.getChoices().get(0);
+			Choice c2= d.getChoices().get(1);
+			choice1Button.setText(c1.getDescription());
+			choice2Button.setText(c2.getDescription());
+			choice1Button.setAction(c1.getResult());
+			choice2Button.setAction(c2.getResult());
+		}else{
+			intro.setText("game Over");
+			remove(choice1Button);
+			remove(choice2Button);
+		}
 	}
 
 }
