@@ -2,22 +2,22 @@ package symposiumProject;
 
 import gui.components.Action;
 
-public class OldWitch extends Decision {
+public class OldWitch2 extends Decision {
 
 	private int number = 0;
 	
-	public OldWitch() {
+	public OldWitch2() {
 		super();
-		setDescription("You're in front of the old Witch's House");
-		addChoice(new Choice("Go inside", new Action() {
+		setDescription("Inside the house, you hear the old witch singing.");
+		addChoice(new Choice("Explore the house", new Action() {
 			
 			@Override
 			public void act() {
 				if(number == 0){
-					GameScreen.result.setText("Oh no! The old Witch tried to eat you!");
+					GameScreen.result.setText("The old Witch is angry! You touched on of her belongings");
 					GameScreen.player.injure();
 					number++;
-					GameScreen.game.nextChoice(2);//1 is the index of the dragon choice
+					GameScreen.game.nextChoice(3);//1 is the index of the dragon choice
 				}else{
 					GameScreen.player.kill();
 					GameScreen.game.nextChoice();
@@ -31,9 +31,10 @@ public class OldWitch extends Decision {
 			public void act() {
 				GameScreen.result.setText("you narrowly escaped");
 				GameScreen.game.nextExclusiveChoice(2);
+				GameScreen.game.nextExclusiveChoice(3);
 			}
 		}));
 		// TODO Auto-generated constructor stub
 	}
-
+	
 }

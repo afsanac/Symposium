@@ -6,7 +6,7 @@ public class ExploreChoice extends Decision {
 
 	public ExploreChoice() {
 		super();
-		setDescription("You encounter a Forest");
+		setDescription("You encounter a Death Forest");
 		addChoice(new Choice("Explore the Forest", new Action() {
 			
 			@Override

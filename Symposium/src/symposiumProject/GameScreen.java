@@ -21,7 +21,7 @@ public class GameScreen extends ClickableScreen implements Runnable {
 	private String[] locations;
 	
 	
-	private Decision[] allDecisions={new ExploreChoice(),new DragonChoice()};
+	private Decision[] allDecisions={new ExploreChoice(),new DragonChoice(), new OldWitch(), new OldWitch1()};
 	
 	public static TextLabel result;
 	public static GameScreen game;		
