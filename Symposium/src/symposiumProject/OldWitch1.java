@@ -29,10 +29,9 @@ public class OldWitch1 extends Decision {
 			
 			@Override
 			public void act() {
-				GameScreen.result.setText("you narrowly escaped");
-				GameScreen.game.nextExclusiveChoice(2);
+				GameScreen.result.setText("The door is locked! You must find another exit!");
 				GameScreen.game.nextExclusiveChoice(3);
-				GameScreen.game.nextExclusiveChoice(4);
+				GameScreen.game.nextChoice(4);
 			}
 		}));
 		// TODO Auto-generated constructor stub

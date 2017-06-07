@@ -18,10 +18,10 @@ public class GameScreen extends ClickableScreen implements Runnable {
 	private Button gameStarter;
 	private Button choice1Button;
 	private Button choice2Button;
-	private String[] locations;
 	
 	
-	private Decision[] allDecisions={new ExploreChoice(),new DragonChoice(), new OldWitch(), new OldWitch1()};
+	private Decision[] allDecisions={new ExploreChoice(),new DragonChoice(), new OldWitch(), new OldWitch1(), new OldWitch2(), 
+			new MushroomGarden(), new Unicorn()};
 	
 	public static TextLabel result;
 	public static GameScreen game;		
@@ -59,10 +59,10 @@ public class GameScreen extends ClickableScreen implements Runnable {
 		result= new TextLabel(50, 10, 600, 100, "");
 		viewObjects.add(result);
 		intro = new TextLabel(50, 60, 600, 100, "Welcome To FaeryLand! My name is Pixie and I'll be your guide");
-		choice1Button = new Button(400, 400, 80, 50, "a", Color.DARK_GRAY, null);
-		choice2Button = new Button(500, 400, 80, 50, "b", Color.DARK_GRAY, null);
+		choice1Button = new Button(300, 400, 180, 50, "a", Color.MAGENTA, null);
+		choice2Button = new Button(500, 400, 180, 50, "b", Color.BLUE, null);
 
-		gameStarter = new Button(300, 200, 200, 50, "Start Game", Color.CYAN, new Action() {
+		gameStarter = new Button(300, 200, 200, 50, "Start Game", Color.GREEN, new Action() {
 
 			public void act() {
 				viewObjects.remove(title);
