@@ -13,17 +13,10 @@ public class OldWitch extends Decision {
 			
 			@Override
 			public void act() {
-				if(number == 0){
 					GameScreen.result.setText("Oh no! The old Witch tried to eat you!");
-					GameScreen.player.injure();
-					number++;
 					GameScreen.game.nextChoice(2);//1 is the index of the dragon choice
-				}else{
-					GameScreen.player.kill();
-					GameScreen.game.nextChoice();
 					
 				}
-			}
 		}));
 		addChoice(new Choice("Flee", new Action() {
 			

@@ -14,7 +14,7 @@ public class OldWitch1 extends Decision {
 			@Override
 			public void act() {
 				if(number == 0){
-					GameScreen.result.setText("The old Witch is angry! You touched on of her belongings");
+					GameScreen.result.setText("The old Witch is angry! You touched one of her belongings");
 					GameScreen.player.injure();
 					number++;
 					GameScreen.game.nextChoice(3);//1 is the index of the dragon choice

@@ -8,13 +8,13 @@ public class OldWitch2 extends Decision {
 	
 	public OldWitch2() {
 		super();
-		setDescription("Inside the house, you hear the old witch singing.");
-		addChoice(new Choice("Explore the house", new Action() {
+		setDescription("The old Witch is raging with anger, and she coming towards you.");
+		addChoice(new Choice("Fight the Witch", new Action() {
 			
 			@Override
 			public void act() {
 				if(number == 0){
-					GameScreen.result.setText("The old Witch is angry! You touched on of her belongings");
+					GameScreen.result.setText("Oh no! The old Witch tried to eat you!");
 					GameScreen.player.injure();
 					number++;
 					GameScreen.game.nextChoice(3);//1 is the index of the dragon choice
@@ -25,7 +25,7 @@ public class OldWitch2 extends Decision {
 				}
 			}
 		}));
-		addChoice(new Choice("Flee", new Action() {
+		addChoice(new Choice("Climb the chimney", new Action() {
 			
 			@Override
 			public void act() {

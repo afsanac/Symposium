@@ -8,7 +8,7 @@ public class ExploreChoice extends Decision {
 		super();
 		setDescription("You encounter a Death Forest");
 		addChoice(new Choice("Explore the Forest", new Action() {
-			
+
 			@Override
 			public void act() {
 				GameScreen.player.kill();

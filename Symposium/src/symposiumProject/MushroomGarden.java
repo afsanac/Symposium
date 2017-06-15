@@ -4,37 +4,27 @@ import gui.components.Action;
 
 public class MushroomGarden extends Decision {
 
-	private int number = 0;
-	
 	public MushroomGarden() {
 		super();
-		setDescription("Inside the house, you hear the old witch singing.");
-		addChoice(new Choice("Explore the house", new Action() {
+		setDescription("You found the mushroom garden!");
+		addChoice(new Choice("Eat a Mushroom", new Action() {
 			
 			@Override
 			public void act() {
-				if(number == 0){
-					GameScreen.result.setText("The old Witch is angry! You touched on of her belongings");
-					GameScreen.player.injure();
-					number++;
-					GameScreen.game.nextChoice(3);//1 is the index of the dragon choice
-				}else{
-					GameScreen.player.kill();
-					GameScreen.game.nextChoice();
-					
-				}
+				GameScreen.result.setText("OH NO! You ate a deadly mushroom! Ypu stupid human!");
+				GameScreen.player.kill();
+				GameScreen.game.nextChoice();
 			}
 		}));
-		addChoice(new Choice("Flee", new Action() {
+		addChoice(new Choice("Explore", new Action() {
 			
 			@Override
 			public void act() {
-				GameScreen.result.setText("you narrowly escaped");
-				GameScreen.game.nextExclusiveChoice(2);
-				GameScreen.game.nextExclusiveChoice(3);
+				GameScreen.result.setText("The mushrooms are a beauty but careful, don't ever eat one for they are all deadly.");
+				GameScreen.game.nextChoice();
 			}
 		}));
 		// TODO Auto-generated constructor stub
 	}
-	
+
 }

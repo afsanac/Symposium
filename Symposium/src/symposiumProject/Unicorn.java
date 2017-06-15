@@ -8,16 +8,17 @@ public class Unicorn extends Decision {
 	
 	public Unicorn() {
 		super();
-		setDescription("You encountered a Dragon");
-		addChoice(new Choice("Fight Dragon", new Action() {
+		setDescription("OH! She's a beauty! That's Belle, one of the friendliest unicorn in the land. All you have to do"
+				+ "is walk up to her slowly and she'll let you ride her. She doesn't like being surprised.");
+		addChoice(new Choice("Ride", new Action() {
 			
 			@Override
 			public void act() {
 				if(number == 0){
-					GameScreen.result.setText("the Dragon injured you");
+					GameScreen.result.setText("Belle kick you to the side and injured you! I told you be careful");
 					GameScreen.player.injure();
 					number++;
-					GameScreen.game.nextChoice(1);//1 is the index of the dragon choice
+					GameScreen.game.nextChoice(6);//1 is the index of the dragon choice
 				}else{
 					GameScreen.player.kill();
 					GameScreen.game.nextChoice();
@@ -25,12 +26,12 @@ public class Unicorn extends Decision {
 				}
 			}
 		}));
-		addChoice(new Choice("Flee", new Action() {
+		addChoice(new Choice("Walk Slowly", new Action() {
 			
 			@Override
 			public void act() {
-				GameScreen.result.setText("you narrowly escaped");
-				GameScreen.game.nextExclusiveChoice(1);
+				GameScreen.result.setText("You're riding Belle as she races through enchanted forest. Oh what great sights you're seeing!");
+				GameScreen.game.nextExclusiveChoice(6);
 			}
 		}));
 		// TODO Auto-generated constructor stub

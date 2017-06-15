@@ -52,13 +52,15 @@ public class GameScreen extends ClickableScreen implements Runnable {
 	
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		player = new Player();
-		String[] setTo = {"You're in Enchanted Forest", "You found the old witch well!", "Oh no! You found the great dragon!"};
 		title = new TextLabel(300, 100, 200, 50, "Fairly Oddventure");
 		setLabelFont(title, "Marchand de Venise", 55f);
 		author = new TextLabel(300, 150, 250, 50, "By Afsana Chadni");
 		result= new TextLabel(50, 10, 600, 100, "");
 		viewObjects.add(result);
-		intro = new TextLabel(50, 60, 600, 100, "Welcome To FaeryLand! My name is Pixie and I'll be your guide");
+		intro = new TextLabel(50, 60, 600, 100, "Welcome To FaeryLand! My name is Pixie and I'll be your guide. As you exlpore FaeryLand with me as your"
+				+ "guide you will see many magical lands and with it's beautiful inhabits. But be careful some of these inhabits are vicious, dont be"
+				+ "fooled by their looks or you will be dead! Don't worrt too much, I'll at least warn, or let you know you're hurt. Now let's get on "
+				+ "with the exploring!");
 		choice1Button = new Button(300, 400, 180, 50, "a", Color.MAGENTA, null);
 		choice2Button = new Button(500, 400, 180, 50, "b", Color.BLUE, null);
 
@@ -72,7 +74,7 @@ public class GameScreen extends ClickableScreen implements Runnable {
 				addObject(choice2Button);
 				addObject(intro);
 				nextChoice();
-//				viewObjects.add(intro);
+				viewObjects.add(intro);
 //				
 
 			}
@@ -80,7 +82,7 @@ public class GameScreen extends ClickableScreen implements Runnable {
 		viewObjects.add(title);
 		viewObjects.add(author);
 		viewObjects.add(gameStarter);
-//		viewObjects.add(exitIntro);
+
 
 	}
 
